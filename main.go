@@ -5,6 +5,7 @@ import (
 	"github.com/lock-free/gopcp"
 	"github.com/lock-free/gopcp_stream"
 	"github.com/lock-free/obrero"
+	"github.com/lock-free/obrero/mids"
 	"github.com/lock-free/obrero/napool"
 	"github.com/lock-free/obrero/utils"
 	"github.com/lock-free/session_obrero/session"
@@ -37,7 +38,7 @@ func main() {
 			}),
 
 			// (encryptSession, sessionText)
-			"encryptSession": gopcp.ToSandboxFun(func(args []interface{}, attachment interface{}, pcpServer *gopcp.PcpServer) (interface{}, error) {
+			"encryptSession": gopcp.ToSandboxFun(mids.LogMid("encryptSession", func(args []interface{}, attachment interface{}, pcpServer *gopcp.PcpServer) (interface{}, error) {
 				// parse args
 				var (
 					value string
@@ -48,10 +49,10 @@ func main() {
 				}
 
 				return session.Encrypt([]byte(appConfig.SESSION_SECRECT_KEY), value) // encrypt value with session key
-			}),
+			})),
 
 			// (getUidFromSessionText, text, timeout)
-			"getUidFromSessionText": gopcp.ToSandboxFun(func(args []interface{}, attachment interface{}, pcpServer *gopcp.PcpServer) (interface{}, error) {
+			"getUidFromSessionText": gopcp.ToSandboxFun(mids.LogMid("getUidFromSessionText", func(args []interface{}, attachment interface{}, pcpServer *gopcp.PcpServer) (interface{}, error) {
 				// parse args
 				var (
 					text    string
@@ -71,7 +72,7 @@ func main() {
 
 				// query user service to get uid
 				return naPools.CallProxy(appConfig.AUTH_WP_NAME, pcpClient.Call(appConfig.AUTH_METHOD, sessionTxt), time.Duration(timeout)*time.Second)
-			}),
+			})),
 		})
 	}, obrero.WorkerStartConf{
 		PoolSize:            2,
