@@ -36,6 +36,20 @@ func main() {
 				return "session_obrero", nil
 			}),
 
+			// (encryptSession, sessionText)
+			"encryptSession": gopcp.ToSandboxFun(func(args []interface{}, attachment interface{}, pcpServer *gopcp.PcpServer) (interface{}, error) {
+				// parse args
+				var (
+					value string
+				)
+				err := utils.ParseArgs(args, []interface{}{&value}, "(encryptSession, sessionText)")
+				if err != nil {
+					return nil, err
+				}
+
+				return session.Encrypt([]byte(appConfig.SESSION_SECRECT_KEY), value) // encrypt value with session key
+			}),
+
 			// (getUidFromSessionText, text, timeout)
 			"getUidFromSessionText": gopcp.ToSandboxFun(func(args []interface{}, attachment interface{}, pcpServer *gopcp.PcpServer) (interface{}, error) {
 				// parse args
