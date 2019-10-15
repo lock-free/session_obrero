@@ -59,16 +59,17 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:8db515cc886b0d215fcc4377d545a5c623538294fdaa4792ed1178de2967ea3d"
+  digest = "1:0ef4a0f474338fd80b293e583f777160d4ea3686ab1aefaa322c1d2cdc2547e0"
   name = "github.com/lock-free/obrero"
   packages = [
     ".",
     "mids",
     "napool",
+    "stdserv",
     "utils",
   ]
   pruneopts = "UT"
-  revision = "dabf31f37e3197c7c2a8b041e02949d9411d82d0"
+  revision = "8a76e12570501506afd3508f5e1dfbc84424dc9a"
 
 [[projects]]
   digest = "1:274f67cb6fed9588ea2521ecdac05a6d62a8c51c074c1fccc6a49a40ba80e925"
@@ -87,6 +88,7 @@
     "github.com/lock-free/obrero",
     "github.com/lock-free/obrero/mids",
     "github.com/lock-free/obrero/napool",
+    "github.com/lock-free/obrero/stdserv",
     "github.com/lock-free/obrero/utils",
   ]
   solver-name = "gps-cdcl"
