@@ -24,11 +24,6 @@
 #   go-tests = true
 #   unused-packages = true
 
-
-[[constraint]]
-  branch = "master"
-  name = "github.com/LoveKino/db_obrero"
-
 [[constraint]]
   branch = "master"
   name = "github.com/lock-free/gopcp"

@@ -59,7 +59,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:0ef4a0f474338fd80b293e583f777160d4ea3686ab1aefaa322c1d2cdc2547e0"
+  digest = "1:12cf7c08e9226f3f1b9dbb85a901d6314b36e4cf0d121f7eeaf1d6607099f9c5"
   name = "github.com/lock-free/obrero"
   packages = [
     ".",
@@ -69,7 +69,7 @@
     "utils",
   ]
   pruneopts = "UT"
-  revision = "8a76e12570501506afd3508f5e1dfbc84424dc9a"
+  revision = "1bc354721a4a27b72ec2eb1f8b817abab5dcdf80"
 
 [[projects]]
   digest = "1:274f67cb6fed9588ea2521ecdac05a6d62a8c51c074c1fccc6a49a40ba80e925"
@@ -85,7 +85,6 @@
   input-imports = [
     "github.com/lock-free/gopcp",
     "github.com/lock-free/gopcp_stream",
-    "github.com/lock-free/obrero",
     "github.com/lock-free/obrero/mids",
     "github.com/lock-free/obrero/napool",
     "github.com/lock-free/obrero/stdserv",
